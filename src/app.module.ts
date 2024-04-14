@@ -5,6 +5,10 @@ import { AdminModule } from './admin/admin.module';
 import { SpecialityModule } from './speciality/speciality.module';
 import { WorkerModule } from './worker/worker.module';
 import { JwtModule } from '@nestjs/jwt';
+import { AnimalTypeModule } from './animal_type/animal_type.module';
+import { VaccineModule } from './vaccine/vaccine.module';
+import { AnimalsModule } from './animals/animals.module';
+import { VaccinationHistoryModule } from './vaccination_history/vaccination_history.module';
 
 
 @Module({
@@ -13,7 +17,11 @@ import { JwtModule } from '@nestjs/jwt';
     MongooseModule.forRoot(process.env.MONGO_URI),
     AdminModule,
     SpecialityModule,
-    WorkerModule
+    WorkerModule,
+    AnimalTypeModule,
+    VaccineModule,
+    AnimalsModule,
+    VaccinationHistoryModule
   ],
   controllers: [],
   providers: [],
