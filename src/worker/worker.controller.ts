@@ -19,16 +19,16 @@ export class WorkerController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.workerService.findOne(+id);
+    return this.workerService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateWorkerDto: UpdateWorkerDto) {
-    return this.workerService.update(+id, updateWorkerDto);
+    return this.workerService.update(id, updateWorkerDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.workerService.remove(+id);
+    return this.workerService.remove(id);
   }
 }

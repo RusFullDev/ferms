@@ -13,5 +13,6 @@ import { Speciality, SpecialitySchema } from './schema/speciality.schema';
 ],
   controllers: [SpecialityController],
   providers: [SpecialityService],
+  exports:[SpecialityModule]
 })
 export class SpecialityModule {}

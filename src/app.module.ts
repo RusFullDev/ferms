@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AdminModule } from './admin/admin.module';
 import { SpecialityModule } from './speciality/speciality.module';
 import { WorkerModule } from './worker/worker.module';
+import { JwtModule } from '@nestjs/jwt';
 
 
 @Module({

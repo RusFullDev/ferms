@@ -10,23 +10,24 @@ export class SpecialityService {
   constructor(@InjectModel(Speciality.name) private specialityModel:Model<Speciality>){}
 
   
-  create(createSpecialityDto: CreateSpecialityDto) {
-    return 'This action adds a new speciality';
+  async create(createSpecialityDto: CreateSpecialityDto) {
+    const newSpec = await this.specialityModel.create(createSpecialityDto)
+    return newSpec
   }
 
   findAll() {
-    return `This action returns all speciality`;
+    return this.specialityModel.find()
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} speciality`;
+  findOne(id: string) {
+    return this.specialityModel.findById(id)
   }
 
-  update(id: number, updateSpecialityDto: UpdateSpecialityDto) {
-    return `This action updates a #${id} speciality`;
+  update(id: string, updateSpecialityDto: UpdateSpecialityDto) {
+    return this.specialityModel.findByIdAndUpdate(id,updateSpecialityDto)
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} speciality`;
+  remove(id: string) {
+    return this.specialityModel.deleteOne({_id:id});
   }
 }

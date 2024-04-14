@@ -1,10 +1,11 @@
-import { Prop, SchemaFactory } from "@nestjs/mongoose";
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { HydratedDocument } from "mongoose";
 
 
 export type AdminDocument = HydratedDocument<Speciality>;
+@Schema({versionKey:false})
 export class Speciality {
-    @Prop()
+    @Prop({required:true})
     title:string
 
     @Prop()

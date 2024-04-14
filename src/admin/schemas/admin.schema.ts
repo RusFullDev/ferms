@@ -4,21 +4,21 @@ import { HydratedDocument } from 'mongoose';
 
 export type AdminDocument = HydratedDocument<Admin>;
 
-@Schema()
+@Schema({versionKey:false})
 export class Admin {
   @Prop()
   full_name: string;
 
-  @Prop({required:true})
+  @Prop()
   email: string;
 
-  @Prop({required:true})
+  @Prop()
   phone_number: number;
 
   @Prop()
   tg_link:string
 
-  @Prop({required:true})
+  @Prop({ required: true })
   hashed_password:string
 
   @Prop()
@@ -32,6 +32,10 @@ export class Admin {
 
   @Prop()
   description:string
+
+  @Prop()
+  hashed_refresh_token:string
 }
+
 
 export const AdminSchema = SchemaFactory.createForClass(Admin);

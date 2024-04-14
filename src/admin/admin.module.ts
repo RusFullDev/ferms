@@ -10,7 +10,9 @@ import { JwtModule } from '@nestjs/jwt';
     {name:Admin.name,
     schema:AdminSchema}
   ]),
-JwtModule.register({})],
+JwtModule.register({})
+
+],
   controllers: [AdminController],
   providers: [AdminService],
 })

@@ -37,7 +37,7 @@ export class AdminService {
     };
   }
 
-/**************************************************************** */
+/***********************************************************************************/
 
 
 
@@ -49,7 +49,7 @@ export class AdminService {
   }
   const hashed_password = await bcrypt.hash(password,7)
     const newAdmin = await this.adminModel.create({
-      ...CreateAdminDto,
+      ...createAdminDto,
       hashed_password
     })
     const tokens = await this.getTokens(newAdmin)
@@ -58,8 +58,8 @@ export class AdminService {
       {hashed_refresh_token},{new:true}
     )
 
-return hashed_refresh_token
-  }
+return updatedAdmin
+}
 
 
   /******************************************************************** */
@@ -76,7 +76,8 @@ return hashed_refresh_token
   }
 
   remove(id: string) {
-    return this.adminModel.findByIdAndDelete(id)
+    // return this.adminModel.findByIdAndDelete(id)
+    return this.adminModel.deleteOne({_id:id})
   }
 }
 
