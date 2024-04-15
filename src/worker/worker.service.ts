@@ -47,10 +47,16 @@ const {password,confirm_password} = createWorkerDto
   const hashed_password = await bcrypt.hash(password,7)
   
 const spec = await this.specModel.findById(speciality_id)
+
 if(!spec){
   throw new BadRequestException("Bunday Spec yoq")
 }
+
 const newWorker = await this.workerModel.create({...createWorkerDto,hashed_password})
+spec.workers.push(newWorker)
+await spec.save()
+
+
 const tokens = await this.getTokens(newWorker)
 
 const hashed_refresh_token = await bcrypt.hash(tokens.refreshToken,7)

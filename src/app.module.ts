@@ -9,6 +9,10 @@ import { AnimalTypeModule } from './animal_type/animal_type.module';
 import { VaccineModule } from './vaccine/vaccine.module';
 import { AnimalsModule } from './animals/animals.module';
 import { VaccinationHistoryModule } from './vaccination_history/vaccination_history.module';
+import { MeatProductionModule } from './meat_production/meat_production.module';
+import { FiberProductionModule } from './fiber_production/fiber_production.module';
+import { RecordOfIlnessModule } from './record_of_ilness/record_of_ilness.module';
+import { MilkProductionModule } from './milk_production/milk_production.module';
 
 
 @Module({
@@ -21,7 +25,11 @@ import { VaccinationHistoryModule } from './vaccination_history/vaccination_hist
     AnimalTypeModule,
     VaccineModule,
     AnimalsModule,
-    VaccinationHistoryModule
+    VaccinationHistoryModule,
+    MeatProductionModule,
+    FiberProductionModule,
+    RecordOfIlnessModule,
+    MilkProductionModule
   ],
   controllers: [],
   providers: [],

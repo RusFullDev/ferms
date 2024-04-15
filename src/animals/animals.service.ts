@@ -23,7 +23,7 @@ export class AnimalsService {
   }
 
   update(id: string, updateAnimalDto: UpdateAnimalDto) {
-    return this.animalModel.findByIdAndUpdate(id,updateAnimalDto)
+    return this.animalModel.findByIdAndUpdate(id,updateAnimalDto,{new:true})
   }
 
   remove(id: string) {

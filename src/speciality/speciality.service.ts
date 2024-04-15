@@ -16,7 +16,7 @@ export class SpecialityService {
   }
 
   findAll() {
-    return this.specialityModel.find()
+    return this.specialityModel.find().populate('workers')
   }
 
   findOne(id: string) {

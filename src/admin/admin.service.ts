@@ -62,28 +62,6 @@ export class AdminService {
 return updatedAdmin
 }
 
-
-  /******************************************************************** */
-  findAll() {
-    return this.adminModel.find()
-  }
-
-  findOne(id: string) {
-    return this.adminModel.findById(id)
-  }
-
-  update(id: string, updateAdminDto: UpdateAdminDto) {
-    return this.adminModel.findByIdAndUpdate(id,updateAdminDto)
-  }
-
-  remove(id: string) {
-    // return this.adminModel.findByIdAndDelete(id)
-    return this.adminModel.deleteOne({_id:id})
-  }
-
-
-
-
 // -------------------LOGIN-------------------------------/
 
 async login(loginAdminDto: LoginAdminDto, res: Response) {
@@ -147,7 +125,7 @@ async refreshToken(adminId: string, refreshToken: string, res: Response) {
   if (adminId !== decodedToken['_id']) {
     throw new BadRequestException('Ruxsat etilmagan');
   }
-  const admin = await this.adminModel.findOne({ _id: adminId });
+  const admin = await this.adminModel.findOne({ id: adminId });
   if (!admin || !admin.hashed_refresh_token) {
     throw new BadRequestException('admin not found');
   }
@@ -173,5 +151,24 @@ async refreshToken(adminId: string, refreshToken: string, res: Response) {
     tokens,
   };
   return response;
+}
+
+
+ /***********************************************************************************/
+ findAll() {
+  return this.adminModel.find()
+}
+
+findOne(id: string) {
+  return this.adminModel.findById(id)
+}
+
+update(id: string, updateAdminDto: UpdateAdminDto) {
+  return this.adminModel.findByIdAndUpdate(id,updateAdminDto)
+}
+
+remove(id: string) {
+  // return this.adminModel.findByIdAndDelete(id)
+  return this.adminModel.deleteOne({_id:id})
 }
  }
