@@ -24,6 +24,6 @@ export class MeatProductionService {
     return this.meatProductionModel.findByIdAndUpdate(id,updateMeatProductionDto)
   }
   remove(id: string) {
-    return this.meatProductionModel.findByIdAndDelete(id)
+    return this.meatProductionModel.findByIdAndDelete({id})
   }
 }
